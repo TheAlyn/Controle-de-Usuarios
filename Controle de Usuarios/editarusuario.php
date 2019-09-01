@@ -13,11 +13,14 @@ if (isset($_POST['nome']) && empty($_POST['nome']==false))
 	$senha = md5(addslashes($_POST['senha']));
 	$status = addslashes($_POST['status']);
 
-	$sql = "UPDATE usuarios SET NOME_USUARIO = '$nome', DATA_USUARIO = '$data', LOGIN_USUARIO = '$login', SENHA_USUARIO = '$senha', STATUS_USUARIO = '$status' WHERE ID_USUARIO = 'id'";
+	$sql = "UPDATE usuarios SET NOME_USUARIO = '$nome', DATA_USUARIO = '$data', LOGIN_USUARIO = '$login', SENHA_USUARIO = '$senha', STATUS_USUARIO = '$status' WHERE ID_USUARIO = '$id'";
 	$pdo->query($sql);
+	
+	
 
 	header("Location: index.php");
 }
+
 
 	$sql = "SELECT * FROM usuarios WHERE ID_USUARIO = '$id'";
 	$sql = $pdo->query($sql);
